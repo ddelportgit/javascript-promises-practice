@@ -63,9 +63,23 @@ Promise.race([promiseA, promiseB]).then((result) => {
 // Promise.allSettled()
 
 const promiseX = Promise.resolve("Task completed");
-const promiseY = Promise.reject("TaskFailed");
+const promiseY = Promise.reject("Task failed");
 const promiseZ = Promise.resolve("Task finished");
 
 Promise.allSettled([promiseX, promiseY, promiseZ]).then((results) => {
   console.log(results);
 });
+
+// Promise.any()
+
+const promiseFirst = Promise.reject("First failed");
+const promiseSecond = Promise.resolve("Second succeeded");
+const promiseThird = Promise.resolve("Third succeeded");
+
+Promise.any([promiseFirst, promiseSecond, promiseThird])
+  .then((result) => {
+    console.log(result);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
