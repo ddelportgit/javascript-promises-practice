@@ -22,3 +22,13 @@ Promise.resolve(5)
   .then((result) => {
     console.log(result);
   });
+
+// Handle error in promise chain
+
+Promise.resolve(10)
+  .then(() => {
+    throw new Error("Calculation failed");
+  })
+  .catch((error) => {
+    console.log(error);
+  });
