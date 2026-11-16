@@ -83,3 +83,26 @@ Promise.any([promiseFirst, promiseSecond, promiseThird])
   .catch((error) => {
     console.log(error);
   });
+
+// Final challenge
+
+function getUserData() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve({
+        id: 1,
+        name: "Alex",
+        role: "Frontend Developer",
+      });
+    }, 1000);
+  });
+}
+
+getUserData()
+  .then((result) => {
+    console.log(`Name ${result.name}`);
+    console.log(`Role: ${result.role}`);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
