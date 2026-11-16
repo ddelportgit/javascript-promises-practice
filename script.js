@@ -27,8 +27,18 @@ Promise.resolve(5)
 
 Promise.resolve(10)
   .then(() => {
-    throw new Error("Calculation failed");
+    throw new Error("Calculation failed!");
   })
   .catch((error) => {
-    console.log(error);
+    console.log(error.message);
   });
+
+// Promise.all()
+
+const promise1 = Promise.resolve("HTML");
+const promise2 = Promise.resolve("CSS");
+const promise3 = Promise.resolve("JavaScript");
+
+Promise.all([promise1, promise2, promise3]).then((result) => {
+  console.log(result);
+});
