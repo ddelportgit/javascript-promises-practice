@@ -59,3 +59,13 @@ const promiseB = new Promise((resolve) => {
 Promise.race([promiseA, promiseB]).then((result) => {
   console.log(result);
 });
+
+// Promise.allSettled()
+
+const promiseX = Promise.resolve("Task completed");
+const promiseY = Promise.reject("TaskFailed");
+const promiseZ = Promise.resolve("Task finished");
+
+Promise.allSettled([promiseX, promiseY, promiseZ]).then((results) => {
+  console.log(results);
+});
