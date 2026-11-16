@@ -45,16 +45,16 @@ Promise.all([promise1, promise2, promise3]).then((results) => {
 
 // Promise.race()
 
-const promiseA = Promise.resolve(
+const promiseA = new Promise((resolve) => {
   setTimeout(() => {
-    return "Winner A";
-  }, 1000),
-);
-const promiseB = Promise.resolve(
+    resolve("Winner A");
+  }, 1000);
+});
+const promiseB = new Promise((resolve) => {
   setTimeout(() => {
-    return "Winner B";
-  }, 2000),
-);
+    resolve("Winner B");
+  }, 2000);
+});
 
 Promise.race([promiseA, promiseB]).then((result) => {
   console.log(result);
