@@ -39,6 +39,23 @@ const promise1 = Promise.resolve("HTML");
 const promise2 = Promise.resolve("CSS");
 const promise3 = Promise.resolve("JavaScript");
 
-Promise.all([promise1, promise2, promise3]).then((result) => {
+Promise.all([promise1, promise2, promise3]).then((results) => {
+  console.log(results);
+});
+
+// Promise.race()
+
+const promiseA = Promise.resolve(
+  setTimeout(() => {
+    return "Winner A";
+  }, 1000),
+);
+const promiseB = Promise.resolve(
+  setTimeout(() => {
+    return "Winner B";
+  }, 2000),
+);
+
+Promise.race([promiseA, promiseB]).then((result) => {
   console.log(result);
 });
